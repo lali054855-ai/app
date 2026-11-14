@@ -15,3 +15,11 @@ jobs:
           echo "=== STARTING BUILD STAGE ==="
           echo "Installing application dependencies..."
           echo "Build finished successfully!"
+
+  test_stage:
+    needs: build_stage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate Tests
+        run: |
+          python3 -c "print('Running simulated tests...'); assert 1 + 1 == 2; print('Tests passed successfully!')"
