@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useGetUserID } from "../hook/useGetUserID";
 import { SearchBar } from "../components/SearchBar";
+import { RecipeDetailsModal } from "../components/RecipeDetailsModal";
 import "./SavedRecipes.css";
 
 export const Favourites = () => {
   const [recipes, setRecipes] = useState([]);
   const [keyword, setKeyword] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
   const recipesPerPage = 3;
 
   const userID = useGetUserID();
@@ -48,7 +50,7 @@ export const Favourites = () => {
   const recipesToDisplay = filteredRecipes.slice(startIndex, endIndex);
 
   return (
-    <div>
+    <div className="recipe-container">
       <h1 className="recipe-title">- Your favorite recipes -</h1>
       <div className="col-md-12 mt-2">
         <p className="search-info-text" style={{color: 'black'}}>
@@ -70,42 +72,47 @@ export const Favourites = () => {
           recipesToDisplay.map((recipe) => (
             <div key={recipe._id} className="recipe-card">
               <div className="card">
-                <div className="card-img-container">
-                  <img
-                    src={recipe.imageUrl}
-                    className="card-img-top"
-                    alt={recipe.name}
-                  />
-                </div>
+                <button
+                  type="button"
+                  className="recipe-card-open"
+                  onClick={() => setSelectedRecipe(recipe)}
+                  aria-label={`View ${recipe.name} recipe`}
+                >
+                  <div className="card-img-container">
+                    <img
+                      src={recipe.imageUrl}
+                      className="card-img-top"
+                      alt=""
+                    />
+                  </div>
+                  <div className="recipe-card-summary">
+                    <div className="recipe-card-heading">
+                      <h2 className="card-title">{recipe.name}</h2>
+                      <span className="recipe-card-arrow" aria-hidden="true">
+                        &rarr;
+                      </span>
+                    </div>
+                    <div className="recipe-card-meta">
+                      {recipe.category && <span>{recipe.category}</span>}
+                      {recipe.cookingTime && (
+                        <span>{recipe.cookingTime} mins</span>
+                      )}
+                    </div>
+                    <span className="recipe-card-hint">View full recipe</span>
+                  </div>
+                </button>
                 <div className="card-body">
-                  <h2 className="card-title">{recipe.name}</h2>
-                  <p className="card-text">
-                    <span className="card-text-title">Ingredients: </span>
-                    <br />
-                  </p>
-                  <ul>
-                    {recipe.ingredients.map((ingredient, index) => (
-                      <li key={index}>{ingredient}</li>
-                    ))}
-                  </ul>
-
-                  <p className="card-text">
-                    <span className="card-text-title">Instructions: </span>
-                    <br />
-                    {recipe.instructions}
-                  </p>
-
-                  <p className="card-text">
-                  <span className="card-text-title">Cooking Time: </span>
-                    <br />
-                    {recipe.cookingTime} mins
-                  </p>
+                  <span className="recipe-card-ingredient-count">
+                    {recipe.ingredients.length} ingredients
+                  </span>
                 </div>
               </div>
             </div>
           ))
         ) : (
-          <p>No recipes found. Create a new recipe today!</p>
+          <p className="empty-recipes">
+            No recipes found. Create a new recipe today!
+          </p>
         )}
       </div>
       {/* Pagination controls */}
@@ -128,6 +135,10 @@ export const Favourites = () => {
           ))}
         </ul>
       </nav>
+      <RecipeDetailsModal
+        recipe={selectedRecipe}
+        onClose={() => setSelectedRecipe(null)}
+      />
     </div>
   );
 };

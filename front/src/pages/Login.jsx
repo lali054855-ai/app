@@ -50,7 +50,7 @@ export const Login = () => {
     <div className="container mt-4">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <h1>Login Form</h1>
+          <h1 className="auth-title">Welcome back</h1>
         </div>
       </div>
       <div className="row">

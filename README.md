@@ -96,6 +96,17 @@ https://www.figma.com/file/jrteTptsGmrBh8zW7e5u8n/NEU-Web-Development-Project-3?
 
 These instructions will help you set up the Recipe Vault on your local machine for development and testing purposes.
 
+### Run with Docker Compose
+
+Install Docker Desktop, copy `.env.example` to `.env`, and set the local credentials in `.env`. Then run this command from the repository root:
+
+```bash
+Copy-Item .env.example .env
+docker compose up --build
+```
+
+Open [http://localhost:5173](http://localhost:5173) and register an account. Stop the services with `docker compose stop`; MongoDB data is stored in a named volume and is retained when containers stop. Do not use `docker compose down -v` unless you intend to delete that data. The default credentials are for local development only; configure strong values before exposing services beyond your computer.
+
 ### Prerequisites
 
 Before you begin, make sure you have the following software installed:
@@ -109,13 +120,13 @@ Before you begin, make sure you have the following software installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/JishvaShah/RecipeVaultApp.git
+   git clone https://github.com/lali054855-ai/app.git
    ```
 
 2. Install all the dependencies
 
    ```bash
-   cd RecipeVaultApp
+   cd app
    npm install
    cd front
    npm install
@@ -134,10 +145,9 @@ Before you begin, make sure you have the following software installed:
    JWT_SECRET=your_jwt_secret
    ```
 
-5. Start backend server on a a new terminal in the root of the project and initialize the db with synthetic records
+5. Start the backend server in a new terminal at the project root. Register through the app to create a user account.
 
    ```bash
-   npm run initDB
    npm start
    ```
 

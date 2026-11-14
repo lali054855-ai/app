@@ -1,44 +1,106 @@
 @import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Montserrat&display=swap");
 
 img.maxH {
-  max-height: 650px;
+  position: absolute;
+  inset: 0;
+  max-height: none;
+  object-fit: cover;
+  object-position: center 54%;
 }
 
 .img-fluid {
+  display: block;
   height: 100%;
   width: 100%;
 }
 
 .image-container {
   position: relative;
-  /* width: 100%; */
+  min-height: clamp(430px, 69vh, 680px);
+  overflow: hidden;
+  border-radius: 0 0 32px 32px;
+  background: #34372d;
+  box-shadow: 0 20px 50px rgba(52, 42, 31, 0.18);
 }
 
 .overlay-text {
   position: absolute;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  top: 5px;
-  left: 5px;
+  inset: 0;
+  box-sizing: border-box;
   color: #fff;
-  padding: 10px;
-  height: 100%;
-  width: 100%;
+  padding: clamp(2rem, 9vw, 8rem);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 34, 27, 0.82) 0%,
+    rgba(34, 39, 31, 0.64) 44%,
+    rgba(34, 39, 31, 0.08) 100%
+  );
 }
 
 h1.headingStyle {
-  font-size: 7rem;
-  text-align: center;
-  color: #ffebcc;
-  font-family: "Agbalumo", serif;
+  max-width: 760px;
+  margin: 0 0 1.1rem;
+  color: #fff8ec;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.2rem, 9vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  text-align: left;
 }
+
 .home-paragraph-text {
-  font-size: 20px;
-  /* font-weight: 600; */
-  text-align: center;
-  color: #ffebcc;
-  font-family: "Montserrat", serif;
-  width: 50%;
+  width: min(100%, 540px);
+  margin: 0;
+  color: rgba(255, 248, 236, 0.9);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.home-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1.35rem;
+  padding: 0.82rem 1.25rem;
+  border: 1px solid rgba(255, 248, 236, 0.72);
+  border-radius: 999px;
+  color: #394333 !important;
+  background: #fff8ec;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(21, 25, 19, 0.18);
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.home-cta:hover {
+  color: #394333 !important;
+  background: #f0d7b6;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .image-container {
+    min-height: 540px;
+    border-radius: 0 0 22px 22px;
+  }
+
+  .overlay-text {
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(
+      0deg,
+      rgba(28, 34, 27, 0.8) 0%,
+      rgba(34, 39, 31, 0.45) 70%,
+      rgba(34, 39, 31, 0.18) 100%
+    );
+  }
+
+  h1.headingStyle {
+    font-size: clamp(3rem, 16vw, 5rem);
+    text-align: center;
+  }
 }

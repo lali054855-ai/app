@@ -1,7 +1,60 @@
 nav.colors {
-  background-color: #ffebcc;
-  font-family: "Montserrat";
+  position: relative;
+  z-index: 5;
+  padding: 0.65rem clamp(1rem, 4vw, 3.5rem);
+  color: #fffaf1;
+  background: #394333;
+  box-shadow: 0 5px 24px rgba(39, 43, 34, 0.15);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.colors .navbar-brand,
+.colors .nav-link {
+  margin: 0;
+  color: #fffaf1;
   font-weight: 600;
-  padding: 10px 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.colors .navbar-brand a,
+.colors .nav-link a {
+  color: inherit !important;
+  text-decoration: none !important;
+  transition: color 160ms ease;
+}
+
+.colors .navbar-brand a:hover,
+.colors .nav-link a:hover {
+  color: #e8bd91 !important;
+}
+
+.colors .navbar-brand svg {
+  color: #e8bd91;
+  font-size: 1.35rem;
+}
+
+.brand-name {
+  margin-left: 0.65rem;
+  letter-spacing: 0.02em;
+}
+
+.colors .navbar-toggler {
+  border-color: rgba(255, 250, 241, 0.45);
+}
+
+.colors .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(232, 189, 145, 0.3);
+}
+
+.colors .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+@media (max-width: 991.98px) {
+  .colors .navbar-nav {
+    padding-top: 0.5rem;
+  }
+
+  .colors .nav-link {
+    padding: 0.65rem 0;
+  }
 }

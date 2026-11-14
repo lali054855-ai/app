@@ -43,7 +43,7 @@ export const Register = () => {
     <div className="container mt-4">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <h1>Register Form</h1>
+          <h1 className="auth-title">Join Recipe Vault</h1>
         </div>
       </div>
       <div className="row">

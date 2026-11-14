@@ -18,15 +18,14 @@ export const Carousel = () => {
               <h1 className="headingStyle">Recipe Vault</h1>
               <p className="home-paragraph-text">
                 Recipe Vault is a culinary project aimed at assisting users in
-                curating
-                <br /> and managing their favorite recipes. Our app simplifies
+                curating and managing their favorite recipes. Our app simplifies
                 saving, creating, and organizing recipes, improving your cooking
                 experience.
-                <br />
+                {" "}
                 <span>
                   <Link
                     to={cookies.access_token ? "/create-recipe" : "/login"}
-                    style={{ textDecoration: "none", color: "blueviolet" }}
+                    className="home-cta"
                   >
                     Create an amazing recipe today!
                   </Link>

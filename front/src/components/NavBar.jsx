@@ -29,6 +29,7 @@ export const NavBar = () => {
           <div className="navbar-brand">
             <Link to="/" aria-label="Our Website logo" style={{ textDecoration: "none", color: "inherit" }}>
               <FontAwesomeIcon icon={faKitchenSet} />
+              <span className="brand-name">Recipe Vault</span>
             </Link>
           </div>
           <button

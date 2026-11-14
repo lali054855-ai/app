@@ -1,27 +1,56 @@
-@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Montserrat&display=swap");
-
-
-.text-center{
-    font-family: "Agbalumo", serif;
-    color:#f34242 ;
-    font-size: 40px;
+.recipe.row > .col-md-6 {
+  max-width: 760px;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid #e9dfd1;
+  border-radius: 24px;
+  background: #fffdf9;
+  box-shadow: 0 14px 36px rgba(67, 48, 31, 0.08);
 }
 
-.btn.btn-primary{
-    color:black;
-    font-weight: 600;
-    background-color: #ffebcc;
-    border-color: #ffebcc;
-
+.recipe .text-center {
+  margin-bottom: 1.75rem;
+  color: #394333;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 5vw, 2.7rem);
+  font-weight: 700;
 }
 
-.btn.btn-primary:hover{
-    border :2px solid black;
+.recipe .form-label {
+  margin-bottom: 0.45rem;
+  color: #51473d;
+  font-weight: 700;
 }
 
-.btn.btn-danger.ms-2{
-    background-color: white;
-    color: #f34242;
-    font-weight: bold;
-    border: 2px solid #f34242;
+.recipe .btn.btn-danger.ms-2 {
+  min-width: 44px;
+  border: 1px solid #e8c9bc;
+  border-radius: 12px;
+  color: #984a34;
+  background: #fff9f5;
+  font-weight: 700;
+}
+
+.recipe .btn.btn-danger.ms-2:hover {
+  color: #fff;
+  background: #984a34;
+}
+
+.recipe textarea.form-control {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.recipe .mb-3.d-flex.justify-content-center {
+  margin-top: 0.9rem;
+}
+
+.recipe .d-flex.justify-content-center.mt-3 .btn {
+  min-width: 190px;
+}
+
+@media (max-width: 575.98px) {
+  .recipe.row > .col-md-6 {
+    padding: 1.15rem;
+    border-radius: 18px;
+  }
 }

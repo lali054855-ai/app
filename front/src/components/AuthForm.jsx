@@ -14,7 +14,7 @@ const AuthForm = ({
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <form onSubmit={onSubmit}>
+          <form className="auth-card" onSubmit={onSubmit}>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Email address

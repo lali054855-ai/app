@@ -132,3 +132,4 @@ dist
 
 .DS_Store
 temporary
+db/MOCK_USER_DATA.json

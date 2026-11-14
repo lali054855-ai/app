@@ -7,6 +7,7 @@ import { Favourites } from "./pages/Favourites";
 import { CreateRecipes } from "./pages/CreateRecipe";
 import { UpdateAccount } from "./pages/UpdateAccount";
 import { NavBar } from "./components/NavBar";
+import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
