@@ -10,20 +10,33 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Simulate Build
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: npm ci
+      - name: Build application
         run: |
-          echo "=== STARTING BUILD STAGE ==="
-          echo "Installing application dependencies..."
-          echo "Build finished successfully!"
+          npm run build
+          echo "Build completed successfully!"
 
   test_stage:
     needs: build_stage
     runs-on: ubuntu-latest
     steps:
-      - name: Simulate Tests
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
         run: |
-          echo "=== STARTING TEST STAGE ==="
-          python3 -c "print('JUnit / PyTest status: 100% Success!')"
+          npm test
+          echo "Tests passed successfully!"
 
   deploy_stage:
     needs: test_stage

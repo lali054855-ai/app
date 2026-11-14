@@ -17,6 +17,12 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.get("/health", (_req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+app.get("/api/health", (_req, res) => {
+  res.status(200).json({ status: "ok", application: "RecipeVault" });
+});
 app.use(express.static(path.join(__dirname, "front", "dist")));
 app.use("/api/user", userRouter);
 app.use("/api/recipe", recipeRouter);
