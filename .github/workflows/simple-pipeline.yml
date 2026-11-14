@@ -24,3 +24,10 @@ jobs:
         run: |
           echo "=== STARTING TEST STAGE ==="
           python3 -c "print('JUnit / PyTest status: 100% Success!')"
+
+  deploy_stage:
+    needs: test_stage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate Deploy
+        run: echo "Deployment completed successfully!"
